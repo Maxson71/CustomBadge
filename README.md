@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Custom Badge API
 
-## Getting Started
+This project provides an API for generating custom SVG badges based on URL parameters. It is deployed on Vercel and uses Next.js to handle API requests.
 
-First, run the development server:
+## Example
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+You can generate a badge with the following URL format:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://custom-badge.vercel.app/api/badges/{name}?color={color}&bg={bg}
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Parameters
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `name`: The text to display on the badge (required).
+- `color`: The color of the text (hex code without `#`, required).
+- `bg`: The background color of the badge (hex code without `#`, required).
 
-## Learn More
+### Example request
 
-To learn more about Next.js, take a look at the following resources:
+https://custom-badge.vercel.app/api/badges/GitHub?color=fff&bg=111
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![GitHub Badge](https://custom-badge.vercel.app/api/badges/GitHub?color=fff&bg=111)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+https://custom-badge.vercel.app/api/badges/Git?color=FFFFFF&bg=F05032
 
-## Deploy on Vercel
+![GitHub Badge](https://custom-badge.vercel.app/api/badges/Git?color=fff&bg=F05032)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How It Works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The API calculates the badge's width dynamically based on the length of the text and returns an SVG image as a response. You can integrate this badge into any website or README file using the provided URL.
+This README explains the core logic and functionality of the project, without going into technical details like data types or Next.js specifics.
